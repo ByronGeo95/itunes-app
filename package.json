@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "A Full-Stack (Express & React) Web Application that interfaces with the iTunes API",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha",
-    "start": "nodemon server.js"
-  },
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node server.js",
+  "server": "nodemon server.js",
+  "frontend": "npm start --prefix itunes-api-react",
+  "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+  "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix itunes-api-react && npm run build --prefix itunes-api-react"
+},
   "author": "Byron Georgopoulos",
   "license": "ISC",
   "dependencies": {

@@ -9,6 +9,7 @@ const express = require('express');
 const helmet = require('helmet');
 const app = express();
 const fetch = require('isomorphic-fetch');
+const path = require('path');
 
 //Require Body-Parser Middleware
 const bodyParser = require('body-parser');
@@ -32,6 +33,14 @@ fetch(`${apiURL}`)
         }
     )
 });
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('itunes-api-react/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'itunes-api-react', 'build', 'index.html'));
+    });
+
+}
 
 //Express App is listening on PORT 3001 (React App on PORT 3000)
 const PORT = process.env.PORT || 3001;
