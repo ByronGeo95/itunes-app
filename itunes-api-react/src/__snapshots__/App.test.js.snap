@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`H1 Renders Correctly 1`] = `
+<h1>
+  iTunes Store API:
+</h1>
+`;
+
+exports[`Renders Correctly 1`] = `null`;
